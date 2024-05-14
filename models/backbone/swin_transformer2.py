@@ -1468,7 +1468,7 @@ class SwinTransformer(BaseModule):
         return torch.cat([out, out1], dim=-1)
 
 @BACKBONE.register("swin_b")
-def swin_base_patch4_window7_224(pretrained='./pretrained/swin_base_patch4_window7_224_22k.pth', convert_weights=True, img_size=224,drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0., **kwargs):
+def swin_base_patch4_window7_224(pretrained=None, convert_weights=True, img_size=224,drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0., **kwargs):
     model = SwinTransformer(pretrained=pretrained, convert_weights=convert_weights, pretrain_img_size = img_size, patch_size=4, window_size=7, embed_dims=128, depths=(2, 2, 18, 2), num_heads=(4, 8, 16, 32), drop_path_rate=drop_path_rate, drop_rate=drop_rate, attn_drop_rate=attn_drop_rate, **kwargs)
     return model
 
